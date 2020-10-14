@@ -1,0 +1,9 @@
+doctype html
+html
+    head
+        title= "List of notes"
+    body
+        div
+            ul
+                each val, key in result
+                    li= val.id + ' '+ val.notes
