@@ -4,8 +4,14 @@ const db = require("../controller/dbController");
 
 //Add GET Routes
 app.get("/notes", (req, res) => {
-    const result = db.get();
-    res.render('notes',{result: result})
+    const id = req.query.id;
+    if (id) {
+        const result = db.getOne(id);
+        res.render("notes", { result: result });
+    } else {
+        const result = db.get();
+        res.render("notes", { result: result });
+    }
 });
 
 module.exports = app;

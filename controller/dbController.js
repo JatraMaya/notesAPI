@@ -16,6 +16,21 @@ function get() {
     return db.get("notes").value();
 }
 
+//Declaring getOne Function
+function getOne(id) {
+    const parsedId = parseInt(id);
+    return db
+        .get("notes")
+        .find({ id: parsedId })
+        .value();
+    console.log(
+        db
+            .get("notes")
+            .find({ id: parsedId })
+            .value()
+    );
+}
+
 //Declaring function parsedId
 function parsedId(id) {
     const parsed = parseInt(id);
@@ -44,6 +59,13 @@ function deletePost(id) {
         .write();
 }
 
+//Declaring function deleteAll
+function deleteAll() {
+    db.get("notes")
+        .remove({})
+        .value();
+}
+
 //Declaring function edit
 function editPost(body, id) {
     db.get("notes")
@@ -52,4 +74,4 @@ function editPost(body, id) {
         .write();
 }
 
-module.exports = { get, parsedId, dbId, postNote, deletePost, editPost };
+module.exports = { get, getOne, parsedId, dbId, postNote, deletePost, editPost };
