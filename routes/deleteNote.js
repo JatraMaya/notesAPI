@@ -15,7 +15,7 @@ app.delete("/notes", (req, res) => {
     }
 });
 
-app.delete("notes/all", (req, res) => {
+app.delete("/notes/all", (req, res) => {
     db.deleteAll();
     res.send("Success delete all post")
 });

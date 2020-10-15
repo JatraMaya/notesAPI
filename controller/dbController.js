@@ -63,7 +63,7 @@ function deletePost(id) {
 function deleteAll() {
     db.get("notes")
         .remove({})
-        .value();
+        .write();
 }
 
 //Declaring function edit
@@ -74,4 +74,4 @@ function editPost(body, id) {
         .write();
 }
 
-module.exports = { get, getOne, parsedId, dbId, postNote, deletePost, editPost };
+module.exports = { get, getOne, parsedId, dbId, postNote, deletePost, deleteAll, editPost };
